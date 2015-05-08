@@ -32,7 +32,7 @@ public class PersonResource {
     }
 	
 	@GET
-	@Path("/person/{id}")
+	@Path("/person")
 	@Produces(APPLICATION_JSON + ";charset=utf-8")
     public Response personBy(@PathParam("id")Long id) {
 		Person person = new Person(1L, "GHAZALA", "Houssam");//service.Personby(id);

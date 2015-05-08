@@ -7,25 +7,21 @@
  * # MainCtrl
  * Controller of the angularWebappApp
  */
-angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http', function($scope, $http) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-//    $scope.id = 1;
-//    var person = houssam.get({ id: $scope.id }, function() {
-//        debugger;
-//    	console.log(person);
-//      });
+angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http','mainFactory', function($scope, $http, mainFactory) {
     
-    function hello() {
-    	//alert("Hello");
-    	$http.get('http://localhost:8080/jersey-rest/api/resource/person/1').
-        success(function(data) {
-        	debugger;
-            $scope.person = data;
-        });
+//    function personBy(id) {
+//    	$http.get('http://localhost:8080/jersey-rest/api/resource/person/'+id).
+//        success(function(data) {
+//            $scope.person = data;
+//            console.log($scope.person);
+//        });
+//    }
+//    personBy(1);
+    mainFactory.sayHello('Houssam');
+    mainFactory.personBy(1).success(successPerson);
+    function successPerson(data){
+    	debugger;
+    	$scope.person = data;
     }
-    hello();
-  }]);
+  }
+]);
