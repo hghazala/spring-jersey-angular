@@ -87,7 +87,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              proxySnippet, 
+              //proxySnippet, 
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -412,21 +412,21 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask ('server' , [
-                                  'clean: server' ,
-                                  'coffee dist' ,
-                                  'compass: server' ,
-                                  'configureProxies' ,
-                                  'livereload-start',
-                                  'connect: livereload' ,
-                                  'open' ,
-                                  'watch'
-                                ]);
-//  grunt.registerTask('server',
-//		  'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-//    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-//    grunt.task.run(['serve:' + target]);
-//  });
+//  grunt.registerTask ('server' , [
+//                                  'clean: server' ,
+//                                  'coffee dist' ,
+//                                  'compass: server' ,
+//                                  'configureProxies' ,
+//                                  'livereload-start',
+//                                  'connect: livereload' ,
+//                                  'open' ,
+//                                  'watch'
+//                                ]);
+  grunt.registerTask('server',
+		  'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+    grunt.task.run(['serve:' + target]);
+  });
 
   grunt.registerTask('test', [
     'clean:server',

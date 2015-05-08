@@ -15,10 +15,9 @@
 	</properties>
 
 	<modules>
-		<module>front-end</module>
 		<module>data-access-layer</module>
     	<module>jersey-rest</module>
-    <module>angular-webapp</module>
+    	<module>angular-webapp</module>
   </modules>
 
 	<build>
