@@ -1,6 +1,4 @@
-var app = angular.module('app', ['ngResource', 'ngRoute']);
-
-angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http', function($resource, $http) {
+angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','urlConfig', function($resource, $http, urlConfig) {
 
 //	return $resource('http://localhost:8080/jersey-rest/api/resource/person/:id', { id: '@_id' }, {
 //	    get: {
@@ -13,17 +11,18 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http', 
     }
 	
 	return service;
+
+	
 	
 	//////////
 	function sayHello(text){
-        console.log("Factory says \"Hello " + text + "\"");
+        alert("Factory says \"Hello " + text + "\"");
     }
 	
 	function personBy(id){
 		return $http({
             method: "GET",
-            //url: urlsBackendService.urlPerson,
-            url: "http://localhost:8080/jersey-rest/api/resource/person",
+            url: urlConfig.urlPersonById,
             params: {
             	id: id
             }
