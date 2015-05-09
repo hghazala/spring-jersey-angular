@@ -22,7 +22,7 @@ angular.module('angularWebappApp').factory('mainFactory', ['$resource','$http','
 	function personBy(id){
 		return $http({
             method: "GET",
-            url: urlConfig.urlPersonById,
+            url: urlConfig.urlServer+urlConfig.urlPersonById,
             params: {
             	id: id
             }

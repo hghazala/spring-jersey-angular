@@ -13,6 +13,7 @@ angular.module('angularWebappApp').controller('MainCtrl', ['$scope','$http','mai
     
     mainFactory.personBy(1).success(successPerson);
     function successPerson(data){
+    	debugger;
     	$scope.person = data;
     }
   }
