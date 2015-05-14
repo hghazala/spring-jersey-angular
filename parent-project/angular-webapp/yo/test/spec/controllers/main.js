@@ -6,17 +6,20 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('angularWebappApp'));
 
   var MainCtrl,
-    scope;
+    scope, httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
     });
+    httpBackend = $httpBackend;
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+	  httpBackend.when('GET', 'http://localhost:8080/jersey-rest/api/resource/person?id=1')
+      .respond({id:1,nom:"GHAZALA",prenom:"Houssam"});
+	  //expect(scope.awesomeThings.length).toBe(3);
   });
 });
